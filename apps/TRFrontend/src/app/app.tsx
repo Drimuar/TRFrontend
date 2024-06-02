@@ -1,14 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './app.module.scss';
 
-import NxWelcome from './nx-welcome';
 
-export function App() {
+
+
+export default function App() {
   return (
     <div>
-      <NxWelcome title="TRFrontend" />
+      <Layout />
     </div>
   );
 }
-
-export default App;
