@@ -1,0 +1,16 @@
+.footerColumn{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  & a {
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #AFADAD;
+    &:nth-child(1){
+      color: #000;
+    }
+    &:hover{
+      color: #fff;
+    }
+  }
+}

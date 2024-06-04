@@ -5,8 +5,11 @@
   "scripts": {},
   "private": true,
   "dependencies": {
+    "@consta/uikit": "^5.3.2",
+    "axios": "^1.6.8",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-router-dom": "^6.23.1",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

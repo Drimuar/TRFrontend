@@ -1,0 +1,18 @@
+.navList{
+  display: flex;
+  font-size: 14px;
+  color: #fff;
+  @media screen and (max-width:1000px) {
+    display:none;
+  }
+}
+.navList li{
+  margin-left: 2.5rem;
+}
+.navList li a{
+  color: #fff;
+  text-decoration: none;
+}
+.navList li a:hover{
+  color: #000;
+}
