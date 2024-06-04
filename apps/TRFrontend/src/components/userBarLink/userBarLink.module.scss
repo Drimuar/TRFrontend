@@ -1,0 +1,22 @@
+.userBarLink{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border: 0;
+  background-color: transparent;
+  font-size: 12px;
+  color: #000;
+  text-decoration: none;
+  &:hover{
+    color: rgb(36, 104, 238);
+  }
+  &:active{
+    color: #fff;
+  }
+  & > img{
+    width: auto;
+    height: 1.4rem;
+    margin-right: 0.2rem;
+    object-fit: cover;
+  }
+}
