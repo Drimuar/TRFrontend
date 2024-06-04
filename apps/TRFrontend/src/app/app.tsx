@@ -1,13 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import Layout from '../layout/layout';
 import styles from './app.module.scss';
-
-
 
 
 export default function App() {
   return (
-    <div>
-      <Layout />
+    <div className={styles.body}>
+      <div className={styles.container}>
+        <Layout />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,14 @@
+.topHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2468EE;
+  padding: 0 1rem;
+  height: 3rem;
+  border-radius: 6px;
+}
