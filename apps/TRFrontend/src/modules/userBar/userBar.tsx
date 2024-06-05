@@ -14,7 +14,7 @@ export default function UserBar() {
     icon: "/assets/icons/purchases.svg",
   },]
   return (
-    <div className={styles.userBar}>
+    <div className={styles["user-bar"]}>
       <UserBarLink name={barLink[0].name} icon={barLink[0].icon} />
       <UserBarLink name={barLink[1].name} icon={barLink[1].icon} />
       <UserBarLink name={barLink[2].name} icon={barLink[2].icon} />

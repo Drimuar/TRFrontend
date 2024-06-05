@@ -25,7 +25,7 @@ export default function CatalogPage() {
   ];
   return (
     <>
-      <div className={styles.catalogBreadcrumbs}>
+      <div className={styles["catalog-breadcrumbs"]}>
         <Theme preset={presetGpnDefault} className="App">
           <Breadcrumbs items={pagesNoIcon} size="m" fitMode="scroll" />
         </Theme>

@@ -4,7 +4,7 @@ import styles from "./header.module.scss";
 
 export default function TopHeader() {
   return (
-    <div className={styles.topHeader}>
+    <div className={styles["top-header"]}>
       <MainLogo />
       <UserBar />
     </div>

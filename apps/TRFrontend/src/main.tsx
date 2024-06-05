@@ -1,29 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import App from './app/app';
-import MainPage from './pages/mainPage/mainPage';
-import CatalogPage from './pages/catalogPage/catalogPage';
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        index: true,
-        element: <MainPage />
-      },
-      {
-        path: "catalog/:catalogId",
-        element: <CatalogPage />
-      },
-
-    ],
-  }
-]);
-
-
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
 createRoot(
   document.getElementById('root') as HTMLElement).render(

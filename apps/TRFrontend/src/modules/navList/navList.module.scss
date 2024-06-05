@@ -1,4 +1,4 @@
-.navList{
+.nav-list{
   display: flex;
   font-size: 14px;
   color: #fff;
@@ -6,13 +6,13 @@
     display:none;
   }
 }
-.navList li{
+.nav-list li{
   margin-left: 2.5rem;
 }
-.navList li a{
+.nav-list li a{
   color: #fff;
   text-decoration: none;
 }
-.navList li a:hover{
+.nav-list li a:hover{
   color: #000;
 }

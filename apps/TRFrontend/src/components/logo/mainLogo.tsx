@@ -3,6 +3,6 @@ import styles from "./mainLogo.module.scss";
 
 export default function MainLogo() {
   return (
-    <Link draggable="false" className={styles.logoLink} to={"/"}></Link>
+    <Link draggable="false" className={styles["logo-link"]} to={"/"}></Link>
   )
 }

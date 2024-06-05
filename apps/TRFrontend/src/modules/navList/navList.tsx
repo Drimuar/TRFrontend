@@ -3,7 +3,7 @@ import styles from "./navList.module.scss";
 
 export default function NavList() {
   return (
-    <ul className={styles.navList}>
+    <ul className={styles["nav-list"]}>
       <li><Link to="/catalog/1">Конструктора</Link></li>
       <li><Link to="/catalog/2">Куклы</Link></li>
       <li><Link to="/catalog/3">Кубики</Link></li>

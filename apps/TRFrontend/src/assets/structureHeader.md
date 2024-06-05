@@ -9,11 +9,3 @@ Header - Layout
     CategoryMenu - Component
     Links - Component
     Search - Component
-
-Content - Page
-
-Footer - Layout
-  FooterRow - Module
-    FooterColumn  - Module
-      TopFooterLink  - Component
-      FooterLink - Component
