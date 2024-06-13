@@ -1,0 +1,30 @@
+.describe{
+  &__block{
+    font-size: 16px;
+  padding: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  }
+  &__title{
+    font-size: 20px;
+    font-weight: 500;
+  }
+  &__content{
+    margin-top: 1rem;
+    height: 5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__button{
+    color: #2468EE;
+    border: none;
+    background-color: rgba($color: #000000, $alpha: 0.0);
+    margin-top: 2rem;
+    padding: 0;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+}

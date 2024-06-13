@@ -1,7 +1,5 @@
-.main-page {
-  min-height: 60vh;
-}
 .grid-container {
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(auto-fit, 120px);
