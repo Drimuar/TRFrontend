@@ -1,0 +1,19 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+}
+.wrapper {
+  position: fixed;
+  padding: 1.5rem;
+  border-radius: 0.5vw;
+  width: 400px;
+  height: 200px;
+  background-color: #fff;
+  box-shadow: 0 2px 2px black;
+  top: calc(0px + 50vh - 100px);
+  left: calc(0px + 50vw - 200px);
+}

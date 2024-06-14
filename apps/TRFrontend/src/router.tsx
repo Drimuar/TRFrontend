@@ -4,6 +4,8 @@ import MainPage from './pages/mainPage/mainPage';
 import CatalogPage from './pages/catalogPage/catalogPage';
 import ProductPage from './pages/productPage/productPage';
 import { ROUTES } from './utils/constants';
+import UserPage from './pages/userPage/userPage';
+import CartPage from './pages/cartPage/cartPage';
 
 export const router = createBrowserRouter([
   {
@@ -24,11 +26,11 @@ export const router = createBrowserRouter([
       },
       {
         path: ROUTES.CART,
-        element: <div>Корзина</div>
+        element: <CartPage />
       },
       {
         path: ROUTES.USER,
-        element: <div>Пользователь</div>
+        element: <UserPage />
       },
       {
         path: ROUTES.PURCHASES,

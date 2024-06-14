@@ -8,7 +8,7 @@ export default function SearchBar() {
   const handleSearch = ({ target: { value } }: any) => {
     setSearchValue(value);
   }
-  const { data, isLoading } = useGetProductsQuery({ title: searchValue });
+  const { data, isLoading, isSuccess } = useGetProductsQuery({ title: searchValue });
   return (
     <form className={styles["search-bar"]}>
       <input
@@ -22,7 +22,7 @@ export default function SearchBar() {
       />
       <button className={styles["search-button"]}><img draggable="false" src="./assets/icons/search.svg" alt="" /></button>
       {searchValue && <div className={styles["search-box"]}>
-        {isLoading ? "Loading" : !data.length ? "No results" : (
+        {isLoading ? "Loading" : !isSuccess ? "No Data" : !data.length ? "No results" : (
           data.slice(0, 5).map(({ title, images, id }: { title: string, images: string, id: string }) => {
             return (
               <Link key={id} onClick={() => setSearchValue("")} to={`/products/${id}`} className={styles["search-link"]}>

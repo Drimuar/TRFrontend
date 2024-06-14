@@ -1,8 +1,19 @@
 .user-bar {
   display: flex;
   margin-bottom: 0.5rem;
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(2, 2fr);
+    justify-content: space-between;
+    justify-items: start;
+  }
+  @media (max-width: 640px) {
+    display: flex;
+  }
 }
-.user-bar a {
+.user-bar > a,
+.user-bar > div {
   margin-right: 0.5rem;
   display: flex;
   align-items: center;

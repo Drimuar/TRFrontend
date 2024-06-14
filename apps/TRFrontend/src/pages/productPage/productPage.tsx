@@ -1,18 +1,23 @@
-import BreadcrumbsTop from "../../components/breadcrumbsTop/breadcrumbsTop";
-import DescribeBlock from "../../modules/describeBlock/describeBlock";
-import LineHorizontal from "../../components/lineHorizontal/lineHorizontal";
-import styles from "./productPage.module.scss";
-import Button from "../../components/button/button";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetProductQuery } from "../../store/api/apiSlice";
 import { useEffect, useState } from "react";
 import { ROUTES } from "../../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart } from "../../store/user/userSlice";
+import { getRelatedProducts } from "../../store/products/productsSlice";
+import ProductItem from "../../modules/productItem/productItem";
+import DescribeBlock from "../../modules/describeBlock/describeBlock";
+import Button from "../../components/button/button";
 
+import styles from "./productPage.module.scss";
 
 export default function ProductPage() {
   const id = useParams();
   const navigate = useNavigate();
+  const { list, related } = useSelector(({ products }: { products: any; }) => products);
   const { data, isLoading, isFetching, isSuccess } = useGetProductQuery(id);
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     if (!isFetching && !isLoading && !isSuccess) {
@@ -28,11 +33,19 @@ export default function ProductPage() {
     setCurrentImage(data.images[0]);
   }, [data])
 
+  useEffect(() => {
+    if (!data || !list.length) return
+    if (data) {
+      dispatch(getRelatedProducts(data.category.id))
+    }
+  }, [data, dispatch, list.length])
+  const addToCart = () => {
+    dispatch(addItemToCart(data))
+  }
   return !data ? (<div> Loading</div>)
     :
     (
       <>
-        <LineHorizontal />
         <div className={styles["product__row"]}>
           <div className={styles["product__left"]}>
             <h2 className={styles["product__title"]}>{data.title}</h2>
@@ -46,10 +59,10 @@ export default function ProductPage() {
           <div className={styles["product__right"]}>
             <div className={styles["product__priceContainer"]}>
               <h2 className={styles["product__title"]}>Цена: {data.price} р</h2>
-              <Button />
+              <Button onClick={addToCart} />
             </div>
             <div className={styles["product__amount"]}>
-              В наличии: {Math.round(Math.random() * (10 - 4000) + 4000)} шт.</div>
+              В наличии: {800} шт.</div>
             <div className={styles["product__addInfo"]}>
               <h2 className={styles["product__title"]}>Дополнительная информация</h2>
               <p className={styles["product__addInfo__text"]}>
@@ -59,6 +72,14 @@ export default function ProductPage() {
           </div>
         </div>
         <DescribeBlock description={data.description} />
+        <div className={styles["related-products"]}>
+          <h2 className={styles["product__title"]}>Вам может понравиться</h2>
+          <div className={styles["related-container"]}>
+            {isLoading ? <div>Loading...</div> : !isSuccess || !related.length ? <div>No results</div> : (related.slice(0, 5).map((item: any) => {
+              return <ProductItem item={item} image={item.images[0]} title={item.title} price={item.price} id={item.id} />
+            }))}
+          </div>
+        </div>
       </>
     )
 }

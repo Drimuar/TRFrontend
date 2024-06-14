@@ -7,7 +7,6 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <LineHorizontal />
       <section className={styles["footer-row"]}>
         {footerLinks.map((item, index) => <FooterColumn key={index} links={item} />)}
         {/* <FooterColumn links={footerLinks.column1} />

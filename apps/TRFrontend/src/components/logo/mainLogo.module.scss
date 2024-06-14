@@ -1,7 +1,12 @@
-.logo-link{
+.logo-link {
   display: block;
   width: 474px;
   height: 116px;
   background-image: url(/apps/TRFrontend/src/assets/Logo.png);
   background-size: cover;
+  @media (max-width: 640px) {
+    width: 474px;
+    height: 136px;
+    margin-bottom: 1rem;
+  }
 }
