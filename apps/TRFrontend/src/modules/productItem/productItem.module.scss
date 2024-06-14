@@ -5,34 +5,33 @@
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  & a{
-    text-decoration: none;
-    color: black;
-  }
 }
-
+a {
+  text-decoration: none;
+  color: black;
+}
 
 .product-top {
   position: relative;
   flex-basis: 50%;
-  & > img{
+  & > img {
     width: 100%;
     object-fit: cover;
   }
-  &-compare {
-    display: block;
-    background-color: rgba(0, 0, 0, 0.0);
-    border: 0;
-    position: absolute;
-    top:0;
-    right: 0;
-  }
   &-favorite {
     display: block;
-    background-color: rgba(0, 0, 0, 0.0);
+    background-color: rgba(0, 0, 0, 0);
     border: 0;
     position: absolute;
-    top:0;
+    top: 0;
+    right: -5px;
+  }
+  &-compare {
+    display: block;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    position: absolute;
+    top: 0;
     right: 2rem;
   }
 }
@@ -55,4 +54,3 @@
     text-overflow: ellipsis;
   }
 }
-

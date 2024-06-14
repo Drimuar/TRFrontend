@@ -1,26 +1,29 @@
-.catalog-page{
-  &-content{
+.catalog-page {
+  &-content {
     display: flex;
     margin-top: 1rem;
   }
   &-left-side {
     flex-basis: 19%;
-    border: #000 solid 1px;
   }
   &-right-side {
     flex-basis: 81%;
     margin-left: 1.5rem;
-    border: #000 solid 1px;
+  }
+  &-pagination {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
   }
 }
 
-.catalog-nav-menu{
+.catalog-nav-menu {
   height: 180px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.catalog-filter{
+.catalog-filter {
   margin-top: 1.5rem;
   height: 400px;
   background-color: #fff;
@@ -28,28 +31,28 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.catalog-card-container{
+.catalog-card-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 420px);
   column-gap: 20px;
   row-gap: 20px;
-  @media screen and (max-width:1200px) {
+  @media screen and (max-width: 1200px) {
     grid-template-rows: repeat(2, 400px);
   }
-  @media screen and (max-width:1024px) {
+  @media screen and (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 420px);
   }
-  @media screen and (max-width:850px) {
+  @media screen and (max-width: 850px) {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 380px);
   }
-  @media screen and (max-width:768px) {
+  @media screen and (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 440px);
   }
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(8, max-content);
   }

@@ -2,7 +2,7 @@ import styles from "./breadcrumbsTop.module.scss";
 import { Breadcrumbs } from '@consta/uikit/Breadcrumbs';
 import { Theme, presetGpnDefault } from "@consta/uikit/Theme";
 
-export default function BreadcrumbsTop() {
+export default function BreadcrumbsTop({ category }: { category: any }) {
   const pagesNoIcon = [
     {
       label: 'Главная',
@@ -21,11 +21,13 @@ export default function BreadcrumbsTop() {
       href: '/catalog/3',
     },
   ];
-
+  console.log(category)
   return (
     <div className={styles["catalog-breadcrumbs"]}>
       <Theme preset={presetGpnDefault} className="App">
-        <Breadcrumbs items={pagesNoIcon} size="s" fitMode="scroll" />
+        {
+          <Breadcrumbs items={category} size="s" fitMode="scroll" getItemLabel={(item: any) => item.label} />
+        }
       </Theme>
     </div>
   )
