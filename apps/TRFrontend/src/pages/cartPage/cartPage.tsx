@@ -13,49 +13,50 @@ export default function CartPage() {
     dispatch(removeItemFromCart(id))
   }
   return (
-    <div>
-      <h2>Корзина</h2>
-      {!cart.length ? (
-        <div>Here is empty</div>
-      ) : (<div>
-        {cart.map((item: any) => {
-          const { title, category, images, price, id, quantity } = item
-          return (
-            <div className="item" key={id}>
-              <div className="image"><img src={images[0]} alt="" /></div>
-              <div>
-                <p className="title">{title}</p>
-                <div className="category">{category.name}</div>
-              </div>
-              <div className="price">{price}</div>
-              <div>
-                <div className="minus" onClick={() => changeQuantity(item, Math.max(1, quantity - 1))}>
-                  <img src="" alt="" />-
+    <>
+      <h2 className={styles["page-title"]}>Ваша корзина</h2><div className={styles["page-container"]}>
+        {!cart.length ? (
+          <div className={styles["cart-empty"]}>Здесь пока пусто</div>
+        ) : (<div className={styles["cart-container"]}>
+          {cart.map((item: any) => {
+            const { title, category, images, price, id, quantity } = item;
+            return (
+              <div className={styles["item"]} key={id}>
+                <div className={styles["item-image"]}><img src={images[0]} alt="" /></div>
+                <div className={styles["item-describe-container"]}>
+                  <p className={styles["item-title"]}>{title}</p>
+                  <div className={styles["item-category"]}>Категория: {category.name}</div>
                 </div>
-                <span>{quantity}</span>
-                <div className="plus" onClick={() => changeQuantity(item, Math.max(1, quantity + 1))}>
-                  <img src="" alt="" />+
+                <div className={styles["price-block"]}>
+                  <div className={styles["item-price"]}>{price} р</div>
+                  <div className={styles["counter"]}>
+                    <div className={styles["counter-minus"]} onClick={() => changeQuantity(item, Math.max(1, quantity - 1))}>
+                      <img src="" alt="" />
+                    </div>
+                    <span className={styles["counter-quantity"]}>{quantity}</span>
+                    <div className={styles["counter-plus"]} onClick={() => changeQuantity(item, Math.max(1, quantity + 1))}>
+                      <img src="" alt="" />
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div className="total">{price * quantity}</div>
-              <div className="delete" onClick={() => removeItem(item.id)}><img src="" alt="" />delete</div>
-            </div>
-          )
-        })
-        }
-      </div>)
-      }
-      <div className="action"></div>
-      <div className="total-price">
-        TOTAL PRICE: {" "}
-        <span>
-          {
-            sumBy(cart.map(({ quantity, price }) => quantity * price))
-          } р
-        </span>
-      </div>
-      <button className={styles["proceed"]}>Выполнить заказ</button>
-    </div>
+                <div className={styles["item-total"]}><span>Общая цена: </span>{price * quantity} р</div>
+                <div className={styles["item-delete"]} onClick={() => removeItem(item.id)}><img src="" alt="" /></div>
+              </div>
+            );
+          })}
+        </div>)}
+        <div className={styles["action"]}></div>
+        <div className={styles["page-right"]}>
+          <div className={styles["right-total"]}>
+            ОБЩАЯ ЦЕНА: {" "}
+            <span>
+              {sumBy(cart.map(({ quantity, price }) => quantity * price))} р
+            </span>
+          </div>
+          <div className={styles["right-quantity"]}>товары: {sumBy(cart.map(({ quantity }) => quantity))}</div>
+          <button className={styles["right-proceed"]}>Выполнить заказ</button>
+        </div>
+      </div></>
   )
 }
