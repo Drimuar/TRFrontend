@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
 import styles from "./productItem.module.scss";
 import Button from "../../components/button/button";
-import { useDispatch } from "react-redux";
-import { addItemToCart } from "../../store/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart, addItemToFavorite, removeItemFromFavorite } from "../../store/user/userSlice";
+import { useState } from "react";
 
 export default function ProductItem({ item, image, title, price, id }: { item: any, image: any, title: any, price: any, id: any }) {
   const dispatch = useDispatch();
+  const { favorite } = useSelector(({ user }) => user)
   const addToCart = () => {
     dispatch(addItemToCart(item))
+  }
+  const addToFavorite = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    if (favorite.find(item => item.id === id)) {
+      dispatch(removeItemFromFavorite(id))
+    } else dispatch(addItemToFavorite(item))
+
   }
 
   return (
@@ -15,7 +26,7 @@ export default function ProductItem({ item, image, title, price, id }: { item: a
       <div className={styles["product-top"]}>
         <img src={image} alt={title} />
         {/* <button className={styles["product-top-compare"]}><img src="../../assets/icons/compare.svg" alt="" /></button> */}
-        <button className={styles["product-top-favorite"]}><img src="../../assets/icons/favorite.png" alt="" /></button>
+        <button onClick={addToFavorite} className={`${styles["product-top-favorite"]} ${favorite.find(item => item.id === id) ? styles["product-top-favorite-active"] : ""}`}></button>
       </div>
       <div className={styles["product-bottom"]}>
         <p className={styles["product-bottom-price"]}>{price} р</p>

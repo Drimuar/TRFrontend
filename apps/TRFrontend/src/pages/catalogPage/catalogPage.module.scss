@@ -48,22 +48,69 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.filters {
+}
+.filter {
+  &-title {
+    font-weight: 500;
+    padding-bottom: 0.5rem;
+  }
+  &-search {
+    margin-bottom: 1rem;
+  }
+  &-input {
+    width: 100%;
+    height: 1.8rem;
+    padding-left: 0.5rem;
+    border: 1px solid rgba($color: #000000, $alpha: 0.2);
+    border-radius: 0.3vw;
+    &::placeholder {
+      color: rgba($color: #000000, $alpha: 0.35);
+    }
+    &:focus-visible {
+      outline: none;
+      &::placeholder {
+        color: rgba($color: #000000, $alpha: 0);
+      }
+    }
+  }
+  &-price-input {
+    width: 100%;
+    height: 1.8rem;
+    padding-left: 0.5rem;
+    border: 1px solid rgba($color: #000000, $alpha: 0.2);
+    border-radius: 0.3vw;
+    &::placeholder {
+      color: rgba($color: #000000, $alpha: 0.35);
+    }
+    &:focus-visible {
+      outline: none;
+      &::placeholder {
+        color: rgba($color: #000000, $alpha: 0);
+      }
+    }
+  }
+  &-price {
+    padding-bottom: 0.5rem;
+  }
+}
+
 .catalog-card-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 420px);
+  grid-template-rows: repeat(2, min(max-content, 420px));
   column-gap: 20px;
   row-gap: 20px;
   @media (max-width: 1280px) {
-    grid-template-rows: repeat(2, 400px);
+    grid-template-rows: repeat(2, min(max-content, 400px));
   }
   @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 420px);
+    grid-template-rows: repeat(4, min(max-content, 420px));
   }
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 440px);
+    grid-template-rows: repeat(4, min(max-content, 440px));
   }
   @media (max-width: 640px) {
     grid-template-columns: repeat(1, 1fr);

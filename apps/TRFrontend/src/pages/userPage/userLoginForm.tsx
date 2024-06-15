@@ -30,7 +30,7 @@ export default function UserLoginForm({ closeForm, toggleCurrentFormType }: { cl
       <div className={styles["close"]} onClick={closeForm}></div>
       <div className={styles["title"]}>Авторизация</div>
 
-      <form className={styles["title"]} onSubmit={handleSubmit}>
+      <form className={styles["form"]} onSubmit={handleSubmit}>
         <div className={styles["form-group"]}>
           <input type="email" name="email" placeholder="Введите email" value={values.email} autoComplete="off" onChange={handleChange} required />
           <input type="password" name="password" placeholder="Введите password" value={values.password} autoComplete="off" onChange={handleChange} required />

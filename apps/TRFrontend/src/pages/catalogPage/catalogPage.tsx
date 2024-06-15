@@ -12,7 +12,9 @@ import styles from "./catalogPage.module.scss";
 export default function CatalogPage() {
   const { id } = useParams();
   const { list } = useSelector(({ categories }: { categories: any }) => categories)
+  const { maxPrice } = useSelector(({ products }: { products: any }) => products)
 
+  console.log(maxPrice);
   const defaultValues = {
     title: "",
     price_min: 0,
@@ -35,7 +37,7 @@ export default function CatalogPage() {
 
   useEffect(() => {
     if (!id) return;
-    setValues(defaultValues);
+    setValues({ ...defaultValues, price_max: maxPrice });
     setParams({ ...defaultParams, categoryId: id })
   }, [id]);
 
@@ -78,18 +80,18 @@ export default function CatalogPage() {
             <div className={styles["catalog-filter"]}>
               <h2 className={styles["title"]}>Фильтрация</h2>
               <form className={styles["filters"]} onSubmit={handleSubmit}>
-                <h3>Название</h3>
-                <div className={styles["filter"]}>
-                  <input type="text" name="title" onChange={handleChange} placeholder="Product name" value={values.title} />
+                <h3 className={styles["filter-title"]}>Название</h3>
+                <div className={styles["filter-search"]}>
+                  <input className={styles["filter-input"]} type="text" name="title" onChange={handleChange} placeholder="Название продукта" value={values.title} />
                 </div>
-                <h3>Цена, Р</h3>
-                <div className={styles["filter"]}>
+                <h3 className={styles["filter-title"]}>Цена, Р</h3>
+                <div className={styles["filter-price"]}>
                   <span>От</span>
-                  <input type="number" name="price_min" onChange={handleChange} placeholder="0" value={values.price_min} />
+                  <input className={styles["filter-price-input"]} type="number" name="price_min" onChange={handleChange} placeholder="0" value={values.price_min} />
                 </div>
-                <div className={styles["filter"]}>
+                <div className={styles["filter-price"]}>
                   <span>До</span>
-                  <input type="number" name="price_max" onChange={handleChange} placeholder="0" value={values.price_max} />
+                  <input className={styles["filter-price-input"]} type="number" name="price_max" onChange={handleChange} placeholder="0" value={values.price_max} />
                 </div>
                 <button type="submit" hidden />
               </form>

@@ -55,6 +55,10 @@ export default function CartPage() {
             </span>
           </div>
           <div className={styles["right-quantity"]}>товары: {sumBy(cart.map(({ quantity }) => quantity))}</div>
+          <p className={styles["right-info"]}>
+            Доставка заказов осуществляется с 9 до 18 часов, курьер позвонит вам за 30 минут до прибытия.
+            <br /><br /> Во многих районах мы предлагаем доставку во временные интервалы с 9 до 14 или с 13 до 18, а также с 9 до 22 часов.
+          </p>
           <button className={styles["right-proceed"]}>Выполнить заказ</button>
         </div>
       </div></>

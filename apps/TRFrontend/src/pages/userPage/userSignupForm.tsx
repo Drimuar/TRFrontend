@@ -32,7 +32,7 @@ export default function UserSignupForm({ closeForm, toggleCurrentFormType }: { c
       <div className={styles["close"]} onClick={closeForm}></div>
       <div className={styles["title"]}>Регистрация</div>
 
-      <form className={styles["title"]} onSubmit={handleSubmit}>
+      <form className={styles["form"]} onSubmit={handleSubmit}>
         <div className={styles["form-group"]}>
           <input type="email" name="email" placeholder="Введите email" value={values.email} autoComplete="off" onChange={handleChange} required />
           <input type="name" name="name" placeholder="Введите имя" value={values.name} autoComplete="off" onChange={handleChange} required />

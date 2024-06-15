@@ -24,7 +24,23 @@ a {
     border: 0;
     position: absolute;
     top: 0;
-    right: -5px;
+    right: 1px;
+    width: 30px;
+    height: 30px;
+    background-image: url(../../assets/icons/favorite.png);
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.15);
+    }
+    &:active {
+      transform: scale(1.05);
+    }
+    &-active {
+      background-image: url(../../assets/icons/favorite-fill.png);
+    }
   }
   &-compare {
     display: block;

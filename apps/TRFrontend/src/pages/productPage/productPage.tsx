@@ -25,9 +25,13 @@ export default function ProductPage() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading, isFetching, isSuccess]);
-  console.log(data)
+
 
   const [currentImage, setCurrentImage] = useState();
+  const SIZES = ["xs", "s", "m", "x", "xl"];
+  const [currentSize, setCurrentSize] = useState("");
+  const COLORS = ["red", "blue", "yellow", "black", "white"];
+  const [currentColor, setCurrentColor] = useState("");
   useEffect(() => {
     if (!data || !data.images.length) return;
     setCurrentImage(data.images[0]);
@@ -59,7 +63,29 @@ export default function ProductPage() {
           <div className={styles["product__right"]}>
             <div className={styles["product__priceContainer"]}>
               <h2 className={styles["product__title"]}>Цена: {data.price} р</h2>
-              <Button onClick={addToCart} />
+              <p className={styles["product__choose"]}>
+                <div className={styles["product__choose-title"]}>Размер товара:</div> {SIZES.map((size: string) => (
+                  <div
+                    onClick={() => setCurrentSize(size)}
+                    className={`${styles.product__size} ${currentSize === size ? styles.product__active : ""}`}
+                    key={size}
+                  >{size}
+                  </div>
+                ))}
+              </p>
+              <p className={styles["product__choose"]}>
+                <div className={styles["product__choose-title"]}>Цвет товара:</div> {COLORS.map((color: string) => (
+                  <div className={`${styles.product__size} ${currentColor === color ? styles.product__active_color : ""}`}>
+                    <div
+                      onClick={() => setCurrentColor(color)}
+                      className={`${styles.product__color} ${styles["product__color_" + color]}`}
+                      key={color}
+                    >
+                    </div>
+                  </div>
+                ))}
+              </p>
+              <div className={styles["product__button"]}><Button onClick={addToCart} /></div>
             </div>
             <div className={styles["product__amount"]}>
               В наличии: {800} шт.</div>

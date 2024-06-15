@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios";
 import { BASE_URL } from "../../utils/constants";
-import { stat } from "fs";
+
 
 export const createUser: any = createAsyncThunk(
   "users/createUser",
@@ -57,6 +57,7 @@ const userSlice = createSlice({
   initialState: {
     currentUser: null,
     cart: [],
+    favorite: [],
     isLoading: false,
     formType: "signup",
     showForm: false,
@@ -75,6 +76,19 @@ const userSlice = createSlice({
       }
       state.cart = newCart;
     },
+    addItemToFavorite: (state, { payload }) => {
+      let newCart: any = [...state.favorite];
+      const found = state.favorite.find(({ id }) => id === payload.id)
+
+      if (found) {
+        newCart = newCart.map((item: any) => {
+          return item.id === payload.id ? { ...item } : item
+        });
+      } else {
+        newCart.push({ ...payload });
+      }
+      state.favorite = newCart;
+    },
     toggleForm: (state, { payload }) => {
       state.showForm = payload;
     },
@@ -83,6 +97,9 @@ const userSlice = createSlice({
     },
     removeItemFromCart: (state, { payload }) => {
       state.cart = state.cart.filter(({ id }) => id !== payload);
+    },
+    removeItemFromFavorite: (state, { payload }) => {
+      state.favorite = state.favorite.filter(({ id }) => id !== payload);
     }
 
   },
@@ -92,6 +109,6 @@ const userSlice = createSlice({
     builder.addCase(updateUser.fulfilled, addCurrentUser);
   }
 });
-export const { addItemToCart, toggleForm, toggleFormType, removeItemFromCart } = userSlice.actions
+export const { addItemToCart, toggleForm, toggleFormType, removeItemFromCart, addItemToFavorite, removeItemFromFavorite } = userSlice.actions
 
 export default userSlice.reducer;

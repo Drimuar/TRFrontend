@@ -20,6 +20,8 @@ const productsSlice = createSlice({
     list: [],
     filtered: [],
     related: [],
+    minPrice: 0,
+    maxPrice: 0,
     isLoading: false,
   },
   reducers: {
@@ -39,6 +41,9 @@ const productsSlice = createSlice({
     builder.addCase(getProducts.fulfilled, (state, { payload }) => {
       state.list = payload;
       state.isLoading = false;
+      if (payload.length > 0) {
+        state.maxPrice = Math.max(...payload.map(product => product.price));
+      }
     });
     builder.addCase(getProducts.rejected, (state) => {
       state.isLoading = false;

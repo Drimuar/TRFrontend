@@ -6,6 +6,7 @@ import ProductPage from './pages/productPage/productPage';
 import { ROUTES } from './utils/constants';
 import UserPage from './pages/userPage/userPage';
 import CartPage from './pages/cartPage/cartPage';
+import FavoritePage from './pages/favoritePage/favoritePage';
 
 export const router = createBrowserRouter([
   {
@@ -38,7 +39,7 @@ export const router = createBrowserRouter([
       },
       {
         path: ROUTES.FAVORITES,
-        element: <div>Избранное</div>
+        element: <FavoritePage />
       },
     ],
   }

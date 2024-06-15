@@ -16,13 +16,13 @@ export default function UserBar() {
       link: ROUTES.CART,
     },
     {
-      name: "Мои покупки",
+      name: "Мои заказы",
       icon: "/assets/icons/purchases.svg",
       link: ROUTES.PURCHASES,
     },
     {
       name: "Избранное",
-      icon: "/assets/icons/favorite.png",
+      icon: "/assets/icons/favorite-blue.png",
       link: ROUTES.FAVORITES,
     },
   ]
